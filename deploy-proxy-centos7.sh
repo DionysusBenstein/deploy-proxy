@@ -9,4 +9,4 @@ git clone https://github.com/elejke/docker-socks5.git
 cd docker-socks5
 sudo docker build -t socks5 .
 sudo docker run -d -p $((1024 + RANDOM % 65535)):1080 socks5
-sudo docker ps
+sudo docker ps | awk 'FNR==2{print $11}'
